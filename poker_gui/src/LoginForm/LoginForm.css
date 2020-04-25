@@ -1,0 +1,20 @@
+.pkr_login {
+  display:inline-block;
+  width: 80%;
+  background-color: #ddffdd;
+  border-style: solid;
+  border-color: darkslategrey;
+  border-radius: 1em;
+  margin: 0em;
+  padding: 1em;
+}
+
+.pkr_hasVoted {
+  color: green;
+}
+
+.pkr_hasNotVoted {
+  color: darkred;
+}
+
+.radio label input:focus { outline: none; } 

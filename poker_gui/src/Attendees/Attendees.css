@@ -1,0 +1,16 @@
+.pkr_attendees {
+  background-color: #ddffdd;
+  border-style: solid;
+  border-color: darkslategrey;
+  border-radius: 1em;
+  margin: 0px;
+  padding: 1em;
+}
+
+.pkr_hasVoted {
+  color: green;
+}
+
+.pkr_hasNotVoted {
+  color: darkred;
+}

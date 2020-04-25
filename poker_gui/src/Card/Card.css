@@ -1,0 +1,30 @@
+.pkr_card {
+  display: inline-block;
+  background-color: white;
+  color: darkslategray;
+  width: 4em;
+  height: 6em;
+  padding: 5px;
+  margin: 2px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 2px 2px 1px; /* 5px top and bottom, 20px on the sides */
+  border-radius: 8%;
+  font: 14px "Cambria", Futura, sans-serif;
+  font-size-adjust: 1.2;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.pkr_card_selected {
+  border-color: goldenrod;
+  background-color: lightgoldenrodyellow;
+}
+
+.pkr_card_final_selection {
+  border-color: darkred;
+  background-color: lightpink;
+}

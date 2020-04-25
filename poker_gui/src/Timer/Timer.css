@@ -1,0 +1,19 @@
+.pkr_timer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index:20;
+  background-color: #003c00;
+  border-color: #640064;
+  border-width: 2px;
+  border-style: solid;
+  color: #c199c1;
+  width: 1.5em;
+  height: 1.5em;
+  font-size-adjust:0.6;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}

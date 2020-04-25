@@ -1,0 +1,8 @@
+.pkr_footer {
+  width:100%;
+  background-color: black;
+  color: white;
+  padding : 2px;
+  font-size-adjust: 0.4;
+  text-align: center;
+}

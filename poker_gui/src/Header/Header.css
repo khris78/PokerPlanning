@@ -1,0 +1,21 @@
+.header {
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 3px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.version {
+  font-size-adjust: 0.4;
+  font-style: italic;
+}
+
+.exit {
+  float:right;
+  cursor: pointer;
+  padding-right: 1.5em;
+}

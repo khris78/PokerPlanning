@@ -1,0 +1,31 @@
+.pkr_room_container {
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.pkr_room_cards_n_actions {
+    display: flex;
+    flex: 2 40%;
+    flex-flow: column wrap;
+}
+
+.pkr_room_cards {
+    order: 1;
+    flex-grow: 2;
+    min-width: 15em;
+}
+
+.pkr_master_actions {
+    order:2;
+    flex-grow: 0;
+    flex-direction: column;
+}
+
+.pkr_attendee {
+    order: 3;
+    flex-grow: 1;
+    min-width: 15em;
+}
+
