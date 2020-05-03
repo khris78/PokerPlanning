@@ -2,6 +2,8 @@ const util = require('util');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const compression = require('compression');
+const helmet = require('helmet');
 
 const config = require('./config');
 
@@ -34,6 +36,8 @@ const cardSets = {
   },
 };
 
+app.use(compression()); //Compress all routes
+app.use(helmet());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
