@@ -8,4 +8,4 @@ const schema  = mongoose.Schema({
     created_at: Date
 });
 
-module.exports = mongoose.model('event', schema);
+module.exports = mongoose.model('event', schema, 'event');

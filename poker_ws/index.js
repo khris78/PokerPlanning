@@ -2,14 +2,19 @@ const util = require('util');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+const config = require('./config');
+
 const Room = require('./db/RoomSchema');
 const Event = require('./db/EventSchema');
 const Attendee = require('./db/AttendeeSchema');
 
-mongoose.connect('mongodb://localhost:27017/poker', {useMongoClient: true, });
+const { db: { host, port, name, user, pass } } = config;
+const connectionString = `mongodb://${host}:${port}/${name}`;
+mongoose.connect(connectionString, {useNewUrlParser: true, user: `${user}`, pass: `${pass}`});
 
-let app = express(); // création de l'objet représentant notre application express
-let port = 3001;
+const app = express(); // création de l'objet représentant notre application express
+
 
 const cardSets = {
   "Classical" : {
@@ -68,9 +73,9 @@ var getRoomForUser = async function(username, roomname) {
   let roomevents;
   let attendees;
   try {
-    let arr = await Promise.all([ Room.findOne({room_name: roomname}).exec(), 
-                                  Event.find({room : roomname}).exec(),
-                                  Attendee.find({room_name : roomname}).exec()
+    let arr = await Promise.all([ Room.findOne({ room_name : roomname }).exec(), 
+                                  Event.find({ room : roomname }).exec(),
+                                  Attendee.find({ room_name : roomname }).exec()
                                 ]);
     room = arr[0];
     roomevents = arr[1];
@@ -224,27 +229,20 @@ app.post('/api/rooms/:roomname/user/:username', async (req, res) => {
                              is_active: true,
                             });
     
-        await room.save(function (err) {
-          if (err) return handleError(err, "Erreur lors de la création de la salle");
-        });
+        await room.save();
     
         let event = new Event({room: roomname,
                                user_name: username,
                                action: 'JoinRoom',
                                created_at: eventDate,
                               });
-        
-        await event.save(function (err) {
-          if (err) return handleError(err, "Erreur lors de l'ajout de l'événement de création de la salle");
-        });
+        await event.save();
                         
         let attendee = new Attendee({user_name: username,
                                      room : roomname,
                                      last_contact: eventDate,
                                     });
-        await attendee.save(function (err) {
-            if (err) return handleError(err, "Erreur lors de l'ajout de l'événement de création de la salle");
-        });      
+        await attendee.save();
       }
     break;
 
@@ -340,6 +338,6 @@ app.post('/api/rooms/:roomname/user/:username', async (req, res) => {
   return;
 });
 
-app.listen(port, () =>  { // ecoute du serveur sur le port 8080
+app.listen(config.app.port, () =>  { // ecoute du serveur sur le port 8080
     console.log('le serveur fonctionne')
 })

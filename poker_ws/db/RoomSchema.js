@@ -8,4 +8,4 @@ const schema  = mongoose.Schema({
     is_active: Boolean,
 });
 
-module.exports = mongoose.model('room', schema);
+module.exports = mongoose.model('room', schema, 'room');

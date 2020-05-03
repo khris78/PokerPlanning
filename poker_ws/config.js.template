@@ -1,0 +1,33 @@
+const env = process.env.NODE_ENV || 'dev'; // 'dev' or 'prod'
+
+const dev = {
+ app: {
+   port: parseInt(process.env.DEV_APP_PORT) || 3001
+ },
+ db: {
+   host: process.env.DEV_DB_HOST || '<your dev server name>',
+   port: parseInt(process.env.DEV_DB_PORT) || 27017,
+   name: process.env.DEV_DB_NAME || '<your db name>',
+   user: '<a user with readWrite role>',
+   pass: '<the user password>' 
+ }
+};
+const prod = {
+ app: {
+   port: parseInt(process.env.PROD_APP_PORT) || 5001
+ },
+ db: {
+   host: process.env.PROD_DB_HOST || '<your prod server name>',
+   port: parseInt(process.env.PROD_DB_PORT) || 27017,
+   name: process.env.PROD_DB_NAME || '<your db name>',
+   user: '<a user with readWrite role>',
+   pass: '<the user password>' 
+ }
+};
+
+const config = {
+ dev,
+ prod
+};
+
+module.exports = config[env];

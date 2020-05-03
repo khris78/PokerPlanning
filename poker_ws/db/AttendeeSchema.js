@@ -6,4 +6,4 @@ const schema  = mongoose.Schema({
     last_contact: Date,
 });
 
-module.exports = mongoose.model('attendee', schema);
+module.exports = mongoose.model('attendee', schema, 'attendee');
